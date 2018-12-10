@@ -68,5 +68,8 @@ export class AppComponent {
     }
   ];
 
+  select(event){
+    console.log('selected');
+  }
 
 }
