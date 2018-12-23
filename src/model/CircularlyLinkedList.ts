@@ -1,16 +1,16 @@
 
 export class CircularlyLinkedList<E>{
 
-    private size: number;
+    private sizeValue: number = 0;
     private tail: Node<E>;
 
     constructor() { }
 
-    getSize(): number {
-        return this.size;
+    size(): number {
+        return this.sizeValue;
     }
     isEmpty(): boolean {
-        return this.size === 0;
+        return this.sizeValue === 0;
     }
     first(): E {
         if (this.isEmpty())
@@ -35,7 +35,7 @@ export class CircularlyLinkedList<E>{
             node.setNext(this.tail.getNext());
             this.tail.setNext(node);
         }
-        this.size++;
+        this.sizeValue++;
     }
     addLast(element: E): void {
         this.addFirst(element);
@@ -45,11 +45,11 @@ export class CircularlyLinkedList<E>{
         if (this.isEmpty())
             return null;
         const node: Node<E> = this.tail.getNext();
-        if (this.size === 1)
+        if (this.sizeValue === 1)
             this.tail = null;
         else
             this.tail.setNext(node.getNext());
-        this.size--;
+        this.sizeValue--;
         return node.getElement();
     }
 

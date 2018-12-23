@@ -2,16 +2,16 @@ export class SinglyLinkedList<E>{
     // Instance variables of the SinglyLinkedList
     private head: Node<E> = null;
     private tail: Node<E> = null;
-    private sizeNumber : number = 0;
+    private sizeValue : number = 0;
     
     constructor(){}
 
     // Access methods
     size(): number{
-        return this.sizeNumber;
+        return this.sizeValue;
     }
     isEmpty(): boolean {
-        return this.sizeNumber === 0;
+        return this.sizeValue === 0;
     }
     first():E{
         if(this.isEmpty())
@@ -27,25 +27,25 @@ export class SinglyLinkedList<E>{
     // Update methods
     addFirst(e:E):void{
         this.head = new Node(e, this.head);
-        if(this.sizeNumber === 0)
+        if(this.sizeValue === 0)
             this.tail = this.head;
-        this.sizeNumber++;
+        this.sizeValue++;
     }
     addLast(e:E):void{
         const newest : Node<E> = new Node<E>(e, null);
-        if(this.sizeNumber === 0)
+        if(this.sizeValue === 0)
             this.head = newest;
         else
             this.tail.setNext(newest);
         this.tail = newest;
-        this.sizeNumber++;
+        this.sizeValue++;
     }
     removeFirst():E{
         if(this.isEmpty())
             return null;
         const answer: E = this.head.getElement();
         this.head = this.head.getNext();
-        this.sizeNumber--;
+        this.sizeValue--;
         if(this.isEmpty())
             this.tail = null;
         return answer;
