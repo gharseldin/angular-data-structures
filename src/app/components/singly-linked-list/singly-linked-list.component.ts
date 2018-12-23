@@ -14,7 +14,6 @@ export class SinglyLinkedListComponent implements OnInit {
   }
 
   singlyLinkedList : SinglyLinkedList<string>;
-  abstractgraph: AbstractGraph;
 
 
 }
