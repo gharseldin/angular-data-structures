@@ -27,7 +27,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     NgxGraphModule,
     RouterModule.forRoot([
       {
-        path: 'linkedlist',
+        path: 'singlylinkedlist',
         component: SinglyLinkedListComponent
       },
       {
