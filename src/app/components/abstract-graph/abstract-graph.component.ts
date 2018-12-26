@@ -11,20 +11,21 @@ import { Model } from '../../../model/Model'
 export class AbstractGraphComponent implements OnInit {
 
   @Input()
+  nodes;
+  @Input()
+  links;
+  @Input()
   testModel: Model;
 
   constructor() {
 
    }
 
-  ngOnInit() {
-    this.nodes = this.testModel.getNodes();
-    this.links = this.testModel.getLinks();
-  }
+  ngOnInit() {}
 
   curve: any = shape.curveLinear;
   view: any[];
-  autoZoom: boolean = false;
+  autoZoom: boolean = true;
   panOnZoom: boolean = true;
   enableZoom: boolean = true;
   autoCenter: boolean = false;
@@ -32,9 +33,6 @@ export class AbstractGraphComponent implements OnInit {
   colorScheme: any = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
-
-  nodes: any[];
-  links: any[];
 
   select(event) {
     console.log('selected');

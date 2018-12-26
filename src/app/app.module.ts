@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
     BrowserAnimationsModule,
     NgxChartsModule,
     NgxGraphModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: 'singlylinkedlist',

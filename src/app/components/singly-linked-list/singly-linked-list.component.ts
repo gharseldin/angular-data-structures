@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SinglyLinkedList } from 'src/model/linkedlists/SinglyLinkedList';
 import { Model } from 'src/model/Model';
+import { template } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-singly-linked-list',
@@ -10,13 +11,14 @@ import { Model } from 'src/model/Model';
 export class SinglyLinkedListComponent implements OnInit {
 
   linkedList: SinglyLinkedList<string>;
-  singlyLinkedListModel: Model;
-  test: string = "1234";
-
+  elementToAddFirst:any = "";
+  elementToAddLast:any = "";
+  nodes: any[];
+  links: any[];
   constructor() {
     this.linkedList = new SinglyLinkedList<string>();
 
-    this.singlyLinkedListModel = new Model(
+    this.nodes = 
       [
         {
           id: 'start',
@@ -40,8 +42,9 @@ export class SinglyLinkedListComponent implements OnInit {
           id: '6',
           label: 'Email Results'
         }
-      ],
-      [
+      ];
+    this.links= 
+    [
         {
           source: 'start',
           target: '1',
@@ -69,24 +72,74 @@ export class SinglyLinkedListComponent implements OnInit {
           source: '3',
           target: '5'
         }
-      ]
-    );
-    this.singlyLinkedListModel.addNode({
-      id: '7',
-      label: 'Test'
-    });
-    this.singlyLinkedListModel.addLink({
-      source: '7',
-      target: '3'
-    })
-    console.log("model : " + this.singlyLinkedListModel);
+      ];
   }
 
   ngOnInit() {
   }
-  singlyLinkedList: SinglyLinkedList<string>;
 
   refreshModel():void {
-    
+    const tempList = new SinglyLinkedList<any>();
+
+    if(!this.linkedList.isEmpty()){
+      const e: any = this.linkedList.removeFirst();
+      tempModel.addNode({
+        id: this.linkedList.size(),
+        label: e
+      });
+      tempList.addFirst(e);
+    }
+    if(!this.linkedList.isEmpty()){
+      const e:any = this.linkedList.removeFirst();
+      tempModel.addNode({
+          id: this.linkedList.size(),
+          label: e
+      });
+      tempModel.addLink({
+        source: this.linkedList.size()-1,
+        target : this.linkedList.size()
+      })
+      tempList.addLast(e);
+    }
+    this.linkedList = tempList;
+    console.log(this.linkedList);
+  }
+
+  addFirst():void {
+    this.linkedList.addFirst(this.elementToAddFirst);
+    this.elementToAddFirst = "";
+    this.nodes.push({
+      id: '15',
+      label: 'Testing'
+    })
+  }
+
+  addLast():void {
+    this.linkedList.addLast(this.elementToAddLast);
+    this.elementToAddLast = "";
+    this.refreshModel();
+  }
+
+  removeFirst():void{
+    this.linkedList.removeFirst();
+    this.refreshModel();
+  }
+
+  reset():void{
+    this.nodes = [];
+    this.nodes = [{
+      id: 'start',
+      label: 'hey'
+    },
+    {
+      id:2,
+      label: 'hey 2'
+    }];
+    this.links = [{
+      source: '1',
+      target: '2'
+    }];
+    this.elementToAddFirst = "";
+    this.elementToAddLast = "";
   }
 }
