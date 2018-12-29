@@ -9,16 +9,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxGraphModule } from '@swimlane/ngx-graph';
-import { SinglyLinkedListComponent } from './components/singly-linked-list/singly-linked-list.component';
+
 import { AbstractGraphComponent } from './components/abstract-graph/abstract-graph.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+
+import { SinglyLinkedListComponent } from './components/singly-linked-list/singly-linked-list.component';
+import { CircularlyLinkedListComponent } from './components/circularly-linked-list/circularly-linked-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SinglyLinkedListComponent,
     AbstractGraphComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    CircularlyLinkedListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,10 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
       {
         path: 'singlylinkedlist',
         component: SinglyLinkedListComponent
+      },
+      {
+        path: 'circularlylinkedlist',
+        component: CircularlyLinkedListComponent
       },
       {
         path: '',
