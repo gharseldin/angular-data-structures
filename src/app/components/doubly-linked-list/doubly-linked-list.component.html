@@ -1,0 +1,60 @@
+<div style="width: 10%;float: left; margin-right: 1%;">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="size">Size</button>
+    </div>
+    <input type="text" class="form-control" value= {{linkedList.size()}} disabled>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="isempty">isEmpty</button>
+    </div>
+    <input type="text" class="form-control" value={{linkedList.isEmpty()?true:false}} disabled>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="first">First</button>
+    </div>
+    <input type="text" class="form-control" value={{linkedList.first()}} disabled>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" type="button" id="last">Last</button>
+    </div>
+    <input type="text" class="form-control" value={{linkedList.last()}} disabled>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" (click)="addFirst()" type="button" id="addfirst">Add First</button>
+    </div>
+    <input type="text" [(ngModel)] = "elementToAddFirst" class="form-control"  >
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" (click)="addLast()" type="button" id="addlast">Add Last</button>
+    </div>
+    <input type="text" [(ngModel)] = "elementToAddLast" class="form-control" >
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" (click)= "removeFirst()" type="button" id="removeFirst">Remove First</button>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" (click)= "removeLast()" type="button" id="reset">Remove Last</button>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary" (click)= "reset()" type="button" id="reset">Rest</button>
+    </div>
+  </div>
+</div>
+<div style="width: 85%; height:100vh; float: left;">
+  <app-abstract-graph [nodes]="nodes" [links]="links"></app-abstract-graph>
+</div>

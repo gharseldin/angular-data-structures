@@ -15,6 +15,7 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 
 import { SinglyLinkedListComponent } from './components/singly-linked-list/singly-linked-list.component';
 import { CircularlyLinkedListComponent } from './components/circularly-linked-list/circularly-linked-list.component';
+import { DoublyLinkedListComponent } from './components/doubly-linked-list/doubly-linked-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CircularlyLinkedListComponent } from './components/circularly-linked-li
     SinglyLinkedListComponent,
     AbstractGraphComponent,
     MainMenuComponent,
-    CircularlyLinkedListComponent
+    CircularlyLinkedListComponent,
+    DoublyLinkedListComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,10 @@ import { CircularlyLinkedListComponent } from './components/circularly-linked-li
       {
         path: 'circularlylinkedlist',
         component: CircularlyLinkedListComponent
+      },
+      {
+        path: 'doublylinkedlist',
+        component: DoublyLinkedListComponent
       },
       {
         path: '',
