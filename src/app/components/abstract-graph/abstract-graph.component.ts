@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as shape from 'd3-shape';
 import { Input } from '@angular/core';
-import { Model } from '../../../model/Model'
 
 @Component({
   selector: 'app-abstract-graph',
@@ -14,14 +13,14 @@ export class AbstractGraphComponent implements OnInit {
   nodes;
   @Input()
   links;
-  @Input()
-  testModel: Model;
 
   constructor() {
-
+    console.log("constructor of graph called");
    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("ngOnInit of graph called");
+  }
 
   curve: any = shape.curveLinear;
   view: any[];
@@ -33,8 +32,4 @@ export class AbstractGraphComponent implements OnInit {
   colorScheme: any = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
-
-  select(event) {
-    console.log('selected');
-  }
 }
