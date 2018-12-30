@@ -8,8 +8,8 @@ import { DoublyLinkedList } from '../../../model/linkedlists/DoublyLinkedList';
 export class DoublyLinkedListComponent implements OnInit {
 
   linkedList: DoublyLinkedList<string>;
-  elementToAddFirst: any = "";
-  elementToAddLast: any = "";
+  elementToAddFirst: any = '';
+  elementToAddLast: any = '';
   nodes: any[];
   links: any[];
 
@@ -36,67 +36,70 @@ export class DoublyLinkedListComponent implements OnInit {
   }
 
   refreshModel(): void {
-    const tempList: DoublyLinkedList<string> = new DoublyLinkedList<string>();
 
-    const newNodes: any[] = [{
-      id: 'head',
-      label: 'Head Sentinal'
-    },
-    {
-      id: 'trailer',
-      label: 'Trailer Sentinal'
-    }];
-    const newLinks: any[] = [];
+    if (this.linkedList.isEmpty()) {
+      this.reset();
+    } else {
+      const tempList: DoublyLinkedList<string> = new DoublyLinkedList<string>();
 
-    let id: number = 0;
-    while (!this.linkedList.isEmpty()) {
-      const e: any = this.linkedList.removeFirst();
-      tempList.addLast(e);
-      newNodes.push({
-        id: '' + id++,
-        label: e
-      });
-      newLinks.push({
-        source: '' + (id - 2),
-        target: '' + (id - 1)
-      });
-      if(id>1){
-        newLinks.push({
-          source: '' + (id - 1),
-          target: '' + (id - 2)
-        });
-      }
-    }
-    newLinks.push({
-      source: '0',
-      target: 'head'
-    },
-      {
-        source: 'head',
-        target: '0'
+      const newNodes: any[] = [{
+        id: 'head',
+        label: 'Head Sentinal'
       },
       {
-        source: '' + (id - 1),
-        target: 'trailer'
-      }, {
-        source: 'trailer',
-        target: '' + (id - 1)
-      });
-    this.linkedList = tempList;
-    this.nodes = newNodes;
-    this.links = newLinks;
+        id: 'trailer',
+        label: 'Trailer Sentinal'
+      }];
+      const newLinks: any[] = [];
+      let id = 0;
+      while (!this.linkedList.isEmpty()) {
+        const e: any = this.linkedList.removeFirst();
+        tempList.addLast(e);
+        newNodes.push({
+          id: '' + id++,
+          label: e
+        });
+        newLinks.push({
+          source: '' + (id - 2),
+          target: '' + (id - 1)
+        });
+        if (id > 1) {
+          newLinks.push({
+            source: '' + (id - 1),
+            target: '' + (id - 2)
+          });
+        }
+      }
+      newLinks.push({
+        source: '0',
+        target: 'head'
+      },
+        {
+          source: 'head',
+          target: '0'
+        },
+        {
+          source: '' + (id - 1),
+          target: 'trailer'
+        }, {
+          source: 'trailer',
+          target: '' + (id - 1)
+        });
+      this.linkedList = tempList;
+      this.nodes = newNodes;
+      this.links = newLinks;
+    }
   }
-
   addFirst(): void {
     this.linkedList.addFirst(this.elementToAddFirst);
-    this.elementToAddFirst = "";
+    this.elementToAddFirst = '';
     this.links = [];
     this.refreshModel();
   }
 
   addLast(): void {
     this.linkedList.addLast(this.elementToAddLast);
-    this.elementToAddLast = "";
+    this.elementToAddLast = '';
     this.refreshModel();
   }
 
@@ -126,8 +129,8 @@ export class DoublyLinkedListComponent implements OnInit {
       source: 'trailer',
       target: 'head'
     }];
-    this.elementToAddFirst = "";
-    this.elementToAddLast = "";
+    this.elementToAddFirst = '';
+    this.elementToAddLast = '';
   }
 
 }
