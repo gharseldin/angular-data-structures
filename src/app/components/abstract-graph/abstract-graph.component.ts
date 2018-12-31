@@ -14,22 +14,22 @@ export class AbstractGraphComponent implements OnInit {
   @Input()
   links;
 
-  constructor() {
-    console.log("constructor of graph called");
-   }
-
-  ngOnInit() {
-    console.log("ngOnInit of graph called");
-  }
-
   curve: any = shape.curveLinear;
   view: any[];
-  autoZoom: boolean = true;
-  panOnZoom: boolean = true;
-  enableZoom: boolean = true;
-  autoCenter: boolean = false;
-  showLegend: boolean = false;
+  autoZoom = true;
+  panOnZoom = true;
+  enableZoom = true;
+  autoCenter = true;
+  showLegend = false;
   colorScheme: any = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
   };
+
+  constructor() {
+    console.log('constructor of graph called');
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit of graph called');
+  }
 }
